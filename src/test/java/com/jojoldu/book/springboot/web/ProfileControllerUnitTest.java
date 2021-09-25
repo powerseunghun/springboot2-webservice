@@ -41,4 +41,18 @@ public class ProfileControllerUnitTest {
         // then
         assertThat(profile).isEqualTo(expectedProfile);
     }
+
+    @Test
+    public void active_profile_is_null_default_lookup() {
+        // given
+        String expectedProfile = "default";
+        MockEnvironment env = new MockEnvironment();
+        ProfileController controller = new ProfileController(env);
+
+        // when
+        String profile = controller.profile();
+
+        // then
+        assertThat(profile).isEqualTo(expectedProfile);
+    }
 }
